@@ -1,0 +1,19 @@
+org_name: nullstone
+name: gcp-bigquery-access
+friendly_name: BigQuery Access
+description: Provisions a GCP app with access to BigQuery
+category: capability
+subcategory: datastores
+provider_types:
+    - gcp
+platform: bigquery
+subplatform: ""
+type: ""
+appCategories:
+    - container
+    - serverless
+    - server
+is_public: true
+tool_name: opentofu
+include: []
+source_url: https://github.com/nullstone-modules/gcp-bigquery-access
