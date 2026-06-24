@@ -14,9 +14,15 @@ locals {
 
 variable "access" {
   description = <<EOF
-A list of BigQuery roles to grant to the app's service account at the project level.
+A list of BigQuery roles to grant to the app's service account.
 Each item is interpolated as `roles/bigquery.<item>`, so provide only the suffix of the
 predefined role (e.g. `dataViewer`, `jobUser`).
+
+By default, every role is granted at the project level. When a `dataset` connection is
+present, data-access roles (dataOwner, dataEditor, dataViewer, metadataViewer,
+filteredDataViewer) are instead scoped to just that dataset. Project-level capabilities
+that BigQuery does not support on a dataset resource (e.g. jobUser, user) remain granted
+at the project level so that connecting a dataset never breaks them.
 
 Valid values:
   - admin
